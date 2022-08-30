@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+
+  background-color: rgb(242, 242, 243);
+
+  padding: 15px 20px;
+
+  border-radius: 10px;
+}
+
+.header h1 {
+  color: rgb(116, 122, 133);
+
+  text-transform: uppercase;
+}
+
+.ratesList {
+  list-style: none;
+
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 10px;
+
+  background-color: rgb(216, 218, 224);
+
+  border-radius: 10px;
+
+  color: rgb(97, 100, 109);
+
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  transform: scale(1.05);
+}
