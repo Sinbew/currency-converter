@@ -7,8 +7,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  padding: 20px;
 }
 
 code {
@@ -28,14 +26,58 @@ p {
 ul,
 li {
   margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+
+  width: 500px;
+
+  padding: 20px 0;
 }
 
 .convertorContainer {
+  position: relative;
   padding: 40px 0;
+  background-color: #ffffff;
+
+  /* border-radius: 10px; */
+
+  box-shadow: 5px 5px 12px 2px rgba(201, 201, 201, 0.46);
+
+  overflow: hidden;
+}
+
+.convertorContainer::after {
+  content: '';
+  background-color: royalblue;
+  width: 100%;
+  height: 10px;
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.convertorContainer::before {
+  content: '';
+  background-color: rgba(218, 218, 218, 0.329);
+  width: 100%;
+  height: 2px;
+  display: block;
+
+  position: absolute;
+  top: 53%;
+  left: 50%;
+
+  transform: translate(-50%);
 }

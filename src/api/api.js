@@ -1,29 +1,16 @@
-// const KEY = '1Sn0w9EUSEnDW0rdolCKdWxRjJ91mHs2';
-const privat =
+const PRIVATBANK_KEY =
   'https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
 
 export const getActualCurr = () => {
-  return fetch(privat)
+  return fetch(PRIVATBANK_KEY)
     .then(response => response.json())
     .catch(error => console.log('error', error));
 };
 
-const base = 'USD';
-const myHeaders = new Headers();
-myHeaders.append('apikey', '1Sn0w9EUSEnDW0rdolCKdWxRjJ91mHs2');
+const FASTFOREX_KEY = '2664547204-d7251cb918-rhgxlb';
 
-const requestOptions = {
-  method: 'GET',
-  redirect: 'follow',
-  headers: myHeaders,
-};
-
-export const getCurr = () => {
-  return fetch(
-    `https://api.apilayer.com/exchangerates_data/latest?&base=${base}`,
-    requestOptions
-  )
+export const getRates = () => {
+  return fetch(`https://api.fastforex.io/fetch-all?api_key=${FASTFOREX_KEY}`)
     .then(response => response.json())
-
-    .catch(error => console.log('error', error));
+    .catch(error => console.log(error));
 };

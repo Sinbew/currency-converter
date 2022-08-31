@@ -1,30 +1,64 @@
-.convertorWrapper {
-  margin-left: auto;
-  margin-right: auto;
-
+.wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 20px;
-
-  background-color: rgb(242, 242, 243);
-
-  padding: 40px;
-
-  border-radius: 10px;
-}
-
-.inputWrapper {
-  width: 50%;
-
-  display: flex;
+  gap: 10px;
   justify-content: center;
 
-  gap: 5px;
-  padding: 20px 0;
+  margin-bottom: 10px;
+}
 
-  background-color: rgb(222, 226, 233);
-
+.wrapper input {
   border-radius: 10px;
+  border: 1px solid darkgray;
+  outline: none;
+}
+.wrapper input:focus {
+  outline: 2px solid royalblue;
+  border: 1px solid transparent;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  background: rgb(245, 245, 245);
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: rgb(58, 58, 58);
+  cursor: pointer;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 6em;
+  height: 3em;
+  line-height: 3;
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: rgb(236, 236, 236);
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+.select:hover::after {
+  color: royalblue;
 }

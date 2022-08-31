@@ -1,40 +1,35 @@
-import { getCurr } from 'api/api';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './Convertor.module.css';
 
-export const Convertor = () => {
-  const [firstCurrency, setFirstCurrency] = useState('');
-  const [secondCurrency, setSecondCurrency] = useState('');
-
-  const [currency, setCurrency] = useState([]);
-
-  console.log(currency);
-  // useEffect(() => {
-  //   getCurr().then(data =>
-  //     setCurrency([data.base, ...Object.keys(data.rates)])
-  //   );
-  // }, []);
-
-  console.log(currency);
+export const Convertor = props => {
   return (
-    <div className="container convertorContainer">
-      <div className={styles.convertorWrapper}>
-        <div className={styles.inputWrapper}>
-          <input type="number" />
-          {/* <select>
-            {currency?.map(el => {
-              return <option value={el}>{el}</option>;
-            })}
-          </select> */}
-        </div>
-        <div className={styles.inputWrapper}>
-          <input type="number" />
-          <select>
-            <option value="UAH"></option>
-          </select>
-        </div>
+    <div className={styles.wrapper}>
+      <input
+        type="number"
+        value={props.amount}
+        onChange={evt => props.onAmountChange(evt.target.value)}
+      />
+      <div className={styles.select}>
+        <select
+          value={props.currency}
+          onChange={evt => props.onCurrencyChange(evt.target.value)}
+        >
+          {props.currencies?.map((currency, i) => (
+            <option key={i} value={currency}>
+              {currency}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
+};
+
+Convertor.propTypes = {
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  currencies: PropTypes.array,
+  onAmountChange: PropTypes.func,
+  onCurrencyChange: PropTypes.func,
 };

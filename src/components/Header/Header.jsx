@@ -15,21 +15,23 @@ export const Header = () => {
   }
 
   return (
-    <div className="container">
-      <header className={styles.header}>
-        <h1>Currency rates</h1>
-        <ul className={styles.ratesList}>
-          {currency.slice(0, 2).map((el, i) => {
-            return (
-              <li className={styles.listItem} key={i}>
-                <h3>{el.ccy}</h3>
-                <p>Купівля: {format(Number(el.buy))}</p>
-                <p>Продаж: {format(Number(el.sale))}</p>
-              </li>
-            );
-          })}
-        </ul>
-      </header>
-    </div>
+    <header className={styles.header}>
+      <h1>Currency rates</h1>
+      <ul className={styles.ratesList}>
+        {currency.slice(0, 2).map((el, i) => {
+          return (
+            <li className={styles.listItem} key={i}>
+              <h3 className={styles.title}>{el.ccy}</h3>
+              <p>
+                Sell: <span>{format(Number(el.sale))}</span>
+              </p>
+              <p>
+                Buy: <span>{format(Number(el.buy))}</span>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+    </header>
   );
 };
